@@ -3,7 +3,7 @@ export const API_CONFIG = {
 } as const;
 
 export const STREAM_CONFIG = {
-  API_KEY: '',
+  API_KEY: process.env.STREAM_API_KEY,
   IMAGE_PLACEHOLDER: 'https://getstream.io/random_png/',
 } as const;
 

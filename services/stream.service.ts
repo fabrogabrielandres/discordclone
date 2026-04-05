@@ -59,7 +59,7 @@ export async function getStreamState(
     const user = createStreamUser(userId, email);
 
     return {
-        apiKey: STREAM_CONFIG.API_KEY,
+        apiKey: STREAM_CONFIG.API_KEY!,
         user,
         token,
     };

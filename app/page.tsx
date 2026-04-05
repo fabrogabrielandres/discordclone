@@ -1,5 +1,5 @@
 'use client';
-
+import '../lib/query-map' 
 import { LoadingIndicator } from 'stream-chat-react';
 // import MyChat from '@/components/MyChat';
 import { useStreamState } from '@/hooks/queries/use-stream-state';
