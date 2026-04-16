@@ -20,10 +20,10 @@ export function useStreamState() {
             const needsRegistration = !myUser?.publicMetadata?.streamRegistered;
 
             if (needsRegistration) {
-                console.log('[useStreamState] Registering user on Stream backend');
+                // console.log('[useStreamState] Registering user on Stream backend');
                 return registerAndGetStreamState(userId, email);
             } else {
-                console.log('[useStreamState] User already registered:', userId);
+                // console.log('[useStreamState] User already registered:', userId);
                 return getStreamState(userId, email);
             }
         },

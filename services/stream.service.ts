@@ -23,20 +23,20 @@ export async function registerUser(
     email: string
 ): Promise<RegisterUserResponse> {
     const request: RegisterUserRequest = { userId, email };
-    console.log('[StreamService] Registering user:', userId);
+    // console.log('[StreamService] Registering user:', userId);
 
     const response = await httpClient.post<RegisterUserResponse>(
         STREAM_ENDPOINTS.REGISTER_USER,
         request
     );
 
-    console.log('[StreamService] User registered:', response);
+    // console.log('[StreamService] User registered:', response);
     return response;
 }
 
 export async function getUserToken(userId: string): Promise<string> {
     const request: TokenRequest = { userId };
-    console.log('[StreamService] Getting token for user:', userId);
+    // console.log('[StreamService] Getting token for user:', userId);
 
     const response = await httpClient.post<TokenResponse>(
         STREAM_ENDPOINTS.GET_TOKEN,
@@ -47,7 +47,7 @@ export async function getUserToken(userId: string): Promise<string> {
         throw new Error('No token received from server');
     }
 
-    console.log('[StreamService] Token retrieved');
+    // console.log('[StreamService] Token retrieved');
     return response.token;
 }
 
