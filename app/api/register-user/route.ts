@@ -3,11 +3,11 @@ import { StreamChat } from 'stream-chat';
 
 export async function POST(request: Request) {
   const serverClient = StreamChat.getInstance(
-    process.env.STREAM_API_KEY!,
+    process.env.NEXT_PUBLIC_STREAM_API_KEY!,
     process.env.STREAM_CHAT_SECRET
   );
   const body = await request.json();
-  console.log('[/api/register-user] Body:', body);
+  // console.log('[/api/register-user] Body:', body);
 
   const userId = body?.userId;
   const mail = body?.email;
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     id: userId,
     role: 'user',
     name: mail,
-    // imageUrl: `https://getstream.io/random_png/?id=${userId}&name=${mail}`,
+    image: `https://getstream.io/random_png/?id=${userId}&name=${mail}`,
   });
 
   const params = {
