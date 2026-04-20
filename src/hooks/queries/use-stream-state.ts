@@ -2,8 +2,8 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useClerk } from '@clerk/nextjs';
-import { getStreamState, registerAndGetStreamState } from '@/services/stream.service';
-import type { Homestate } from '@/types/stream.types';
+import { getStreamState, registerAndGetStreamState } from '@/src/services/stream.service';
+import type { Homestate } from '@/src/types/stream.types';
 
 export function useStreamState() {
     const { user: myUser } = useClerk();

@@ -1,13 +1,13 @@
 import { STREAM_ENDPOINTS } from './endpoints';
-import { httpClient } from '@/lib/http-client';
-import { STREAM_CONFIG } from '@/lib/constants';
+import { httpClient } from '@/src/lib/http-client';
+import { STREAM_CONFIG } from '@/src/lib/constants';
 import type {
     RegisterUserRequest,
     RegisterUserResponse,
     TokenRequest,
     TokenResponse,
     Homestate,
-} from '@/types/stream.types';
+} from '@/src/types/stream.types';
 import type { User } from 'stream-chat';
 
 function createStreamUser(userId: string, userName: string): User {

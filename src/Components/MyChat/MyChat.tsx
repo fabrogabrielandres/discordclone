@@ -1,5 +1,5 @@
 
-import { useCreateChatClient } from '@/hooks/useCreateChatClient';
+import { useCreateChatClient } from '@/src/hooks/useCreateChatClient';
 import { User } from 'stream-chat';
 import {
   Chat,

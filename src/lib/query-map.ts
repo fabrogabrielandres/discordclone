@@ -1,5 +1,5 @@
 // services/endpoint-relations.ts
-import { STREAM_ENDPOINTS } from '@/services/endpoints';
+import { STREAM_ENDPOINTS } from '@/src/services/endpoints';
 
 export const ENDPOINT_RELATIONS = {
     [STREAM_ENDPOINTS.REGISTER_USER]: {

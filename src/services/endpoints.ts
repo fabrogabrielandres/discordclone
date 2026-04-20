@@ -1,4 +1,4 @@
-import { API_CONFIG } from '@/lib/constants';
+import { API_CONFIG } from '@/src/lib/constants';
 
 const API = API_CONFIG.BASE_URL;
 

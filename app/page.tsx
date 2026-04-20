@@ -1,9 +1,9 @@
 'use client';
-import '../lib/query-map'
+import '../src/lib/query-map'
 import { LoadingIndicator } from 'stream-chat-react';
-import { useStreamState } from '@/hooks/queries/use-stream-state';
+import { useStreamState } from '@/src/hooks/queries/use-stream-state';
 import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
-import MyChat from '@/Components/MyChat/MyChat';
+import MyChat from '@/src/Components/MyChat/MyChat';
 
 
 export default function Home() {

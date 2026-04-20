@@ -1,4 +1,4 @@
-import { HTTP_HEADERS } from '@/lib/constants';
+import { HTTP_HEADERS } from '@/src/lib/constants';
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
