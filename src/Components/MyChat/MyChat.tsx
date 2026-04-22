@@ -11,7 +11,7 @@ import {
   Thread,
   Window,
 } from 'stream-chat-react';
-
+import ServerList from '../ServerList/ServerList';
 
 export default function MyChat({
   apiKey,
@@ -28,10 +28,6 @@ export default function MyChat({
     tokenOrProvider: token,
   });
 
-  console.log("apiKey",apiKey);
-  console.log("user",user);
-  console.log("token",token);
-  
 
   if (!chatClient) {
     return <div>Error, please try again later.</div>;
@@ -40,6 +36,10 @@ export default function MyChat({
   return (
     <Chat client={chatClient} theme='str-chat__theme-light'>
       <section className='flex h-screen w-screen layout'>
+        <ServerList />
+
+        {/* <div className='bg-green-500 w-72'></div> */}
+        {/* <div className='bg-red-500'></div> */}
         <ChannelList />
         <Channel>
           <Window>

@@ -16,6 +16,7 @@
     "react-dom": "19.2.4",
     "stream-chat": "^9.40.0",
     "stream-chat-react": "^13.14.3",
+    "uuid": "^14.0.0",
     "zustand": "^5.0.12"
   },
   "devDependencies": {

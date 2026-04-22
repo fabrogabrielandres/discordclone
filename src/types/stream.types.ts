@@ -6,10 +6,6 @@ export type Homestate = {
   token: string;
 };
 
-export type DiscordServer = {
-  name: string;
-  image: string | undefined;
-};
 
 export interface RegisterUserRequest {
   userId: string;
