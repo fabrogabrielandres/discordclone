@@ -40,7 +40,7 @@ export default function MyChat({
 
         {/* <div className='bg-green-500 w-72'></div> */}
         {/* <div className='bg-red-500'></div> */}
-        <ChannelList />
+        <ChannelList  />
         <Channel>
           <Window>
             <MessageList />

@@ -9,17 +9,17 @@ const ServerList = () => {
         {
             id: uuid(),
             name: "Server 1",
-            image: undefined
+            image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
             id: uuid(),
             name: "Server 2",
-            image: undefined
+            image: "https://plus.unsplash.com/premium_photo-1661878265739-da90bc1af051?q=80&w=1572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
             id: uuid(),
             name: "Server 3",
-            image: undefined
+            image: "https://images.unsplash.com/photo-1562408590-e32931084e23?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
 
     ]
@@ -39,8 +39,9 @@ const ServerList = () => {
                     return (
                         <button
                             key={server.name}
-                        // className={`p-4 sidebar-icon ${server === activeServer ? 'selected-icon' : ''
-                        //     }`}
+                            // ${server === activeServer ? 'selected-icon' : ''}
+                        className={`p-4 sidebar-icon 
+                            `}
                         // onClick={() => {
                         //     changeServer(server, client);
                         // }}

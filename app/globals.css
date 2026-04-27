@@ -38,10 +38,53 @@ body {
   grid-template-columns: 5rem auto 1fr;
 }
 
+@theme {
+  /* ===== my coostoms colors ===== */
+  --color-discord: #7289da;
+  --color-dark-discord: #4752c4;
+  --color-dark-gray: #dfe1e4;
+  --color-medium-gray: #f0f1f3;
+  --color-light-gray: #e8eaec;
+  --color-hover-gray: #cdcfd3;
+  --color-composer-gray: hsl(210 calc(1 * 11.1%) 92.9% / 1);
+  --color-gray-normal: #313338;
+
+}
+
 
 /* modified */
 
 
 .rounded-icon {
   @apply transition-all ease-in-out duration-200 aspect-square object-cover rounded-full;
+}
+
+.rounded-icon:hover {
+  border-radius: 1rem;
+}
+
+.sidebar-icon {
+  @apply flex items-center justify-center w-full relative transition-all ease-in-out duration-200;
+}
+
+
+.sidebar-icon::before {
+  @apply transition-all duration-200 ease-in-out;
+  --content-height: 0rem;
+  --content-width: 0rem;
+  --offset: -0.4rem;
+  content: '';
+  display: block;
+  height: var(--content-height);
+  width: var(--content-width);
+  background: black;
+  position: absolute;
+  border-radius: 3px;
+  left: var(--offset);
+}
+
+.sidebar-icon:hover::before {
+  --content-height: 1.25rem;
+  --content-width: 0.5rem;
+  --offset: -0.15rem;
 }
