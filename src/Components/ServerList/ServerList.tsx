@@ -2,6 +2,7 @@ import { DiscordServer } from '@/src/types/discordServer.types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { v4 as uuid } from 'uuid';
+import CreateServerForm from './CreateServerForm';
 
 const ServerList = () => {
 
@@ -27,24 +28,14 @@ const ServerList = () => {
 
     return (
         <div className='bg-dark-gray h-full flex flex-col items-center'>
-            {/* <button
-                ${activeServer === undefined ? 'selected-icon' : ''}
-                className={`block p-3 aspect-square sidebar-icon border-t-2 border-t-gray-300`}
-            onClick={() => changeServer(undefined, client)}
-            >
-                <div className='rounded-icon discord-icon'></div>
-            </button> */}
+
             <div className='border-t-2 border-t-gray-300'>
                 {serverList.map((server) => {
                     return (
                         <button
                             key={server.name}
-                            // ${server === activeServer ? 'selected-icon' : ''}
-                        className={`p-4 sidebar-icon 
+                            className={`p-4 sidebar-icon 
                             `}
-                        // onClick={() => {
-                        //     changeServer(server, client);
-                        // }}
                         >
                             {server.image && checkIfUrl(server.image) ? (
                                 <Image
@@ -71,7 +62,9 @@ const ServerList = () => {
             >
                 <span className='inline-block'>+</span>
             </Link>
-            {/* <CreateServerForm /> */}
+
+            <CreateServerForm />
+
         </div>
     );
 
