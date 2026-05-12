@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { CloseMark } from '../Icons';
 import UserRow from '../ChannelList/CreateChannelForm/UserRow';
 import { UserObject } from '@/src/types/UserObject';
+import { useChatStore } from '@/src/store/chatStore';
+import { useCreateServer } from '@/src/hooks/useCreateServer';
 
 
 interface FormState {
@@ -18,6 +20,8 @@ const CreateServerForm = () => {
   const router = useRouter();
   const showCreateServerForm = params.get('createServer');
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { chatClient } = useChatStore();
+  const createServer = useCreateServer();
 
   const {
     register,
@@ -62,10 +66,21 @@ const CreateServerForm = () => {
   const onSubmit = async (data: FormState) => {
     try {
       console.log('Form data:', data);
-      
-      // Aquí va tu lógica para crear el servidor
-      
-      // Limpiar y cerrar
+
+      if (!chatClient) return;
+
+      try {
+        await createServer.mutateAsync({
+          client: chatClient,
+          name: 'Mi Nuevo Servidor',
+          imageUrl: '/default-server.png',
+          userIds: [chatClient.userID!],
+        });
+
+        console.log('Servidor creado exitosamente');
+      } catch (error) {
+        console.error('Error al crear servidor:', error);
+      }
       router.replace('/');
       reset();
     } catch (error) {
@@ -177,8 +192,8 @@ const CreateServerForm = () => {
             type='submit'
             disabled={isButtonDisabled}
             className={`bg-[#5865F2] rounded py-2 px-4 text-white font-bold uppercase transition-colors ${isButtonDisabled
-                ? 'opacity-50 cursor-not-allowed'
-                : 'hover:bg-[#4752C4]'
+              ? 'opacity-50 cursor-not-allowed'
+              : 'hover:bg-[#4752C4]'
               }`}
           >
             {isSubmitting ? 'Creating...' : 'Create Server'}

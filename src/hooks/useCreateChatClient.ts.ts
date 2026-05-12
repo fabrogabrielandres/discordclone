@@ -1,17 +1,14 @@
+// hooks/useCreateChatClient.ts
 import { useEffect, useState } from 'react';
-
 import { StreamChat } from 'stream-chat';
-
 import type {
   OwnUserResponse,
   StreamChatOptions,
   TokenOrProvider,
   UserResponse,
 } from 'stream-chat';
+import { useChatStore } from '../store/chatStore';
 
-/**
- * React hook to create, connect and return `StreamChat` client.
- */
 export const useCreateChatClient = ({
   apiKey,
   options,
@@ -24,6 +21,7 @@ export const useCreateChatClient = ({
   options?: StreamChatOptions;
 }) => {
   const [chatClient, setChatClient] = useState<StreamChat | null>(null);
+  const { setChatClient: setGlobalChatClient } = useChatStore();
   const [cachedUserData, setCachedUserData] = useState(userData);
 
   if (userData.id !== cachedUserData.id) {
@@ -39,19 +37,23 @@ export const useCreateChatClient = ({
     const connectionPromise = client
       .connectUser(cachedUserData, tokenOrProvider)
       .then(() => {
-        if (!didUserConnectInterrupt) setChatClient(client);
+        if (!didUserConnectInterrupt) {
+          setChatClient(client);
+          setGlobalChatClient(client); // Guardar en Zustand
+        }
       });
 
     return () => {
       didUserConnectInterrupt = true;
       setChatClient(null);
+      setGlobalChatClient(null); // Limpiar de Zustand
       connectionPromise
         .then(() => client.disconnectUser())
         .then(() => {
           console.log(`Connection for user "${cachedUserData.id}" has been closed`);
         });
     };
-  }, [apiKey, cachedUserData, cachedOptions, tokenOrProvider]);
+  }, [apiKey, cachedUserData, cachedOptions, tokenOrProvider, setGlobalChatClient]);
 
   return chatClient;
 };

@@ -1,4 +1,4 @@
-import { DiscordServer } from '@/src/types/discordServer.types';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { v4 as uuid } from 'uuid';
@@ -6,7 +6,7 @@ import CreateServerForm from './CreateServerForm';
 
 const ServerList = () => {
 
-    const serverList: DiscordServer[] = [
+    const serverList= [
         {
             id: uuid(),
             name: "Server 1",

@@ -1,5 +1,4 @@
 
-import { useCreateChatClient } from '@/src/hooks/useCreateChatClient';
 import { User } from 'stream-chat';
 import {
   Chat,
@@ -12,6 +11,7 @@ import {
   Window,
 } from 'stream-chat-react';
 import ServerList from '../ServerList/ServerList';
+import { useCreateChatClient } from '@/src/hooks/useCreateChatClient.ts';
 
 export default function MyChat({
   apiKey,
